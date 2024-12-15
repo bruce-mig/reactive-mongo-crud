@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: reactive-mongo-crud
+  data:
+    mongodb:
+      database: products_db
+      host: localhost
+      port: 27017
+      username: me
+      password: secret
+      authentication-database: admin
+
+server:
+  port: 9292
