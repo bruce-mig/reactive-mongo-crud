@@ -3,6 +3,7 @@ package com.github.bruce_mig.reactive_mongo_crud.dto;
 import lombok.Builder;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Builder
 public class ProductDto implements Serializable {
@@ -61,5 +62,17 @@ public class ProductDto implements Serializable {
                 ", qty=" + qty +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductDto that = (ProductDto) o;
+        return qty == that.qty && Double.compare(price, that.price) == 0 && Objects.equals(id, that.id) && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, qty, price);
     }
 }
